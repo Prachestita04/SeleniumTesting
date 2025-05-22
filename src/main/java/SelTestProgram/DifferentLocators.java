@@ -13,7 +13,7 @@ public class DifferentLocators {
     static String baseurl = "https://demowebshop.tricentis.com/tricentis";
 
     public static void main(String[] args) throws InterruptedException {
-        System.getProperty(driverType, driverLocation);
+        System.setProperty(driverType, driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();

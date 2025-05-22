@@ -10,7 +10,7 @@ public class FirstSeleniumScript {
     private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
     static String baseurl = "http://www.google.com";
     public static void main(String[] args) throws InterruptedException {
-        System.getProperty(driverType,driverLocation);
+        System.setProperty(driverType,driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();
