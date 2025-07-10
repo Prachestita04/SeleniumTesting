@@ -13,7 +13,7 @@ import java.util.Properties;
 
 public class ReadProperties {
     static WebDriver driver;
-    static String fileLocation = "C:\\Users\\user\\IdeaProjects\\SeleniumTesting\\src\\main\\java\\SelTestProgram\\myFile.properties";
+    static final String fileLocation = "C:\\Users\\user\\IdeaProjects\\SeleniumTesting\\src\\main\\java\\SelTestProgram\\myFile.properties";
     static Properties properties = new Properties();
 
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class ReadProperties {
         driver = new EdgeDriver();
         try {
             driver.get(getPropertyValue("baseurl"));
-            basicDriverFunction(driver, 40, 30);
+            basicBrowserFunction(driver, 40, 30);
 
             WebElement emailTxtBox;
             WebElement passTxtBox ;
@@ -60,7 +60,7 @@ public class ReadProperties {
         return value.trim();
     }
 
-    private static void basicDriverFunction(WebDriver driver, int pageTimeOut, int impliTimeOut) {
+    private static void basicBrowserFunction(WebDriver driver, int pageTimeOut, int impliTimeOut) {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
