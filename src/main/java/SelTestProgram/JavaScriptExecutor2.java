@@ -39,7 +39,7 @@ public class JavaScriptExecutor2 {
             drawBorder(driver, loginBtn);
 
             String alertMessage = "Hey! Welcome to Facebook";
-            generateAlert(driver,alertMessage);
+            generateAlert(driver, alertMessage);
             driver.switchTo().alert().accept();
 
             refreshBrowser(driver);
@@ -47,18 +47,18 @@ public class JavaScriptExecutor2 {
             String findTitleUsingSelenium = driver.getTitle();
             String findCurrentUrlUsingSelenium = driver.getCurrentUrl();
 
-            System.out.println("Title using Selenium method: "+findTitleUsingSelenium);
-            System.out.println("Current Url using Selenium method: "+findCurrentUrlUsingSelenium);
+            System.out.println("Title using Selenium method: " + findTitleUsingSelenium);
+            System.out.println("Current Url using Selenium method: " + findCurrentUrlUsingSelenium);
 
-            System.out.println("Title using JSE method: "+getTitleUsingJSE(driver));
+            System.out.println("Title using JSE method: " + getTitleUsingJSE(driver));
 
-            System.out.println("Inner text of the whole page is: "+getInnerText(driver));
+            System.out.println("Inner text of the whole page is: " + getInnerText(driver));
 
-            clickElementByJSE(driver,loginBtn);
+            clickElementByJSE(driver, loginBtn);
             driver.navigate().to(getPropertyValue("wikipediaPage"));
 //            scrollEndOfThePage(driver);
             WebElement starLinkElement = driver.findElement(By.id(getPropertyValue("starLinkTxt")));
-            scrollToaParticularPoint(driver,starLinkElement);
+            scrollToaParticularPoint(driver, starLinkElement);
 
 
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class JavaScriptExecutor2 {
         Thread.sleep(3000);
     }
 
-    private static void generateAlert(WebDriver driver,String msg) throws InterruptedException {
+    private static void generateAlert(WebDriver driver, String msg) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("alert('" + msg + "')");
         Thread.sleep(5000);
@@ -105,39 +105,39 @@ public class JavaScriptExecutor2 {
         Thread.sleep(5000);
     }
 
-    private static String getTitleUsingJSE(WebDriver driver){
+    private static String getTitleUsingJSE(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         Object title = js.executeScript("return document.title;");
         assert title != null;
         return title.toString();
     }
 
-    private static String getInnerText(WebDriver driver){
+    private static String getInnerText(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String innerText = js.executeScript("return document.documentElement.innerText;").toString();
         return innerText;
     }
 
-    private static void clickElementByJSE(WebDriver driver,WebElement element) throws InterruptedException {
+    private static void clickElementByJSE(WebDriver driver, WebElement element) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         try {
             js.executeScript("arguments[0].click();", element);
-        }
-        catch (StaleElementReferenceException e){
+        } catch (StaleElementReferenceException e) {
             WebElement loginBtn = driver.findElement(By.name(getPropertyValue("loginBtn")));
-            js.executeScript("arguments[0].click();",loginBtn);
+            js.executeScript("arguments[0].click();", loginBtn);
         }
         Thread.sleep(5000);
     }
+
     private static void scrollEndOfThePage(WebDriver driver) throws InterruptedException {
-        JavascriptExecutor js =(JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
         Thread.sleep(5000);
     }
 
-    private static void scrollToaParticularPoint(WebDriver driver,WebElement element) throws InterruptedException {
+    private static void scrollToaParticularPoint(WebDriver driver, WebElement element) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);",element);
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(5000);
     }
 }
