@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Example Suite">
+    <test name="Example Test">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <!--<class name="TestNgBasics"/>
+            <class name="TestNgBasics1"/>
+            <class name="TestNgBasics4"/>-->
+            <class name="TestNgBasics9"/>
+        </classes>
+    </test>
+</suite>
