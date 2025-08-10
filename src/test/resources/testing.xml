@@ -3,11 +3,17 @@
 <suite name="Example Suite">
     <test name="Example Test">
         <parameter name="browser" value="edge"/>
+        <parameter name="firstname" value="Prachi"/>
+        <parameter name="lastname" value="Mahapatra"/>
+        <parameter name="date" value="4"/>
         <classes>
             <!--<class name="TestNgBasics"/>
             <class name="TestNgBasics1"/>
-            <class name="TestNgBasics4"/>-->
+            <class name="TestNgBasics4"/>
             <class name="TestNgBasics9"/>
+            <class name="TestNgBasics11"/>
+            <class name="ParameterTest"/> -->
+            <class name="ParameterTest1"/>
         </classes>
     </test>
 </suite>

@@ -5,16 +5,18 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-public class DataProviderTest {
+public class ParameterTest1 {
     WebDriver driver;
+
+    @BeforeSuite
+    public void abc() {
+        System.out.println("Setup");
+    }
 
     @BeforeSuite
     public void setUp() {
@@ -26,14 +28,9 @@ public class DataProviderTest {
         driver.get("https://www.facebook.com/r.php?entry_point=login");
     }
 
-    @DataProvider
-    public Iterator<Object[]> getData() {
-        ArrayList<Object[]> testData = TestUtil.getData();
-        return testData.iterator();
-    }
-
-    @Test(dataProvider = "getData")
-    public void inputData(String firstName, String lastName, String date) {
+    @Test
+    @Parameters({"firstname", "lastname", "date"})
+    public void passFirstNameLastNameDate(String firstName, String lastName, int date) {
         WebElement firstNameBar = driver.findElement(By.name("firstname"));
         firstNameBar.clear();
         firstNameBar.sendKeys(firstName);
@@ -42,7 +39,7 @@ public class DataProviderTest {
         lastNameBar.sendKeys(lastName);
         WebElement dateBar = driver.findElement(By.id("day"));
         Select selectDateDropDown = new Select(dateBar);
-        selectDateDropDown.selectByVisibleText(date);
+        selectDateDropDown.selectByVisibleText(Integer.toString(date));
     }
 
     @AfterSuite
