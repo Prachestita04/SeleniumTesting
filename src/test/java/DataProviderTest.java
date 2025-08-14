@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class DataProviderTest {
     WebDriver driver;
@@ -27,12 +26,12 @@ public class DataProviderTest {
     }
 
     @DataProvider
-    public Iterator<Object[]> getData() {
+    public Iterator<Object[]> getDataFromExcel() {
         ArrayList<Object[]> testData = TestUtil.getData();
         return testData.iterator();
     }
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getDataFromExcel")
     public void inputData(String firstName, String lastName, String date) {
         WebElement firstNameBar = driver.findElement(By.name("firstname"));
         firstNameBar.clear();
