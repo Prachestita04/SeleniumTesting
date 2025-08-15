@@ -1,9 +1,11 @@
 package SelTestProgram;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.Iterator;
@@ -32,9 +34,16 @@ public class HandleWindows {
 //        product.click();
         List<WebElement> products = driver.findElements(By.xpath("//h2[@class='a-size-medium a-spacing-none a-color-base a-text-normal']//parent::a"));
         int count = 0;
+        Actions actions = new Actions(driver);
         for (WebElement eachProduct: products){
             if(count<3){
-                eachProduct.click();
+                actions.contextClick(eachProduct).perform();
+                actions.keyDown(Keys.CONTROL)   //press control key from keyboard
+                        .click(eachProduct)   //click desired product
+                        .keyUp(Keys.CONTROL)  //release control key and after that the product opens in a new tab
+                        .build()
+                        .perform();
+//                Thread.sleep(5000);
             }
             count++;
         }
@@ -49,6 +58,7 @@ public class HandleWindows {
             if(!(s1.equals(parentWindowId))){
                 System.out.println(s1);
                 driver.switchTo().window(s1);
+                Thread.sleep(5000);
                 driver.close();
             }
         }
