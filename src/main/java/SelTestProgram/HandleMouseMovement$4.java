@@ -9,15 +9,15 @@ import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 
 public class HandleMouseMovement$4 {
-    private static final String driverType = "webdriver.edge.driver";
-    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
+//    private static final String driverType = "webdriver.edge.driver";
+//    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
     static String baseurl = "https://www.flipkart.com/";
     static WebDriver driver;
 
     public static void main(String[] args) throws InterruptedException {
         try {
 
-            System.setProperty(driverType, driverLocation);
+//            System.setProperty(driverType, driverLocation);
             driver = new EdgeDriver();
 
             driver.manage().window().maximize();
@@ -29,15 +29,20 @@ public class HandleMouseMovement$4 {
             driver.get(baseurl);
             WebElement fashionElement = driver.findElement(By.xpath("(//span[text()='Fashion']//parent::span)[2]"));
             Actions actions = new Actions(driver);
-            actions.
-                    moveToElement(fashionElement).perform();
-            WebElement topWearElement = driver.findElement(By.xpath("//a[text()=\"Men's Top Wear\"]"));
-            WebElement allElement = driver.findElement(By.xpath("//a[text()='All']"));
+//            actions.
+//                    moveToElement(fashionElement).perform();
+            fashionElement.click();
+            Thread.sleep(10000);
+
+            WebElement menIconElement = driver.findElement(By.xpath("//span[text()='Men']"));
+            actions.moveToElement(menIconElement).click().build().perform();
+            WebElement topWearElement = driver.findElement(By.xpath("//a[@title='Top wear']"));
+            WebElement shirtElement = driver.findElement(By.xpath("//a[text()='T-Shirts']"));
 //            //a[contains(text(),'Top wear')]
 
             actions.
                     moveToElement(topWearElement).
-                    moveToElement(allElement).click().build().perform();
+                    moveToElement(shirtElement).click().build().perform();
             Thread.sleep(5000);
         } catch (Exception e) {
             System.err.println("Error occurred during execution of code:"+e.getMessage());

@@ -8,12 +8,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import java.time.Duration;
 
 public class HandleFileUpload {
-    private static final String driverType = "webdriver.edge.driver";
-    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
+//    private static final String driverType = "webdriver.edge.driver";
+//    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
     static String baseurl = "https://html.com/input-type-file/";
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty(driverType, driverLocation);
+//        System.setProperty(driverType, driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();

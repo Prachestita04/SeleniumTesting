@@ -9,12 +9,12 @@ import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 
 public class HandleMouseMovement$3 {
-    private static final String driverType = "webdriver.edge.driver";
-    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
+//    private static final String driverType = "webdriver.edge.driver";
+//    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
     static String baseurl = "https://www.flipkart.com/";
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty(driverType, driverLocation);
+//        System.setProperty(driverType, driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();
@@ -25,14 +25,15 @@ public class HandleMouseMovement$3 {
 
         driver.get(baseurl);
 
-        WebElement firstHoverElement = driver.findElement(By.xpath("(//div[@class = 'YBLJE4'])[4]"));
-//        firstHoverElement.click();
+        WebElement tvHoverElement = driver.findElement(By.xpath("//span[contains(text(),'TVs & Appliances')]"));
+        tvHoverElement.click();
         Actions action = new Actions(driver);
-        action.moveToElement(firstHoverElement).build().perform();
-        Thread.sleep(5000);
-        WebElement secondHoverElement = driver.findElement(By.xpath("(//a[@class = '_1BJVlg'])[4]"));
+//        action.moveToElement(tvHoverElement).build().perform();
+//        Thread.sleep(5000);
+        WebElement secondHoverElement = driver.findElement(By.xpath("//span[text()='TVs & Appliances']"));
         action.moveToElement(secondHoverElement).build().perform();
-        WebElement chosenElement = driver.findElement(By.xpath("(//a[@class='_3490ry'])[3]"));
+        Thread.sleep(10000);
+        WebElement chosenElement = driver.findElement(By.xpath("//a[@title='Fully Automatic Front Load']"));
         chosenElement.click();
         Thread.sleep(3000);
         System.out.println("Successfully hovered and clicked the selected element..");

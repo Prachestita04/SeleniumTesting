@@ -10,12 +10,12 @@ import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 
 public class HandleKeyBoardMovement$1 {
-    private static final String driverType = "webdriver.edge.driver";
-    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
+//    private static final String driverType = "webdriver.edge.driver";
+//    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
     static String baseurl = "https://www.google.co.in/";
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty(driverType, driverLocation);
+//        System.setProperty(driverType, driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();

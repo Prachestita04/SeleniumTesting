@@ -9,12 +9,12 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 
 public class HandleDropDowns {
-    private static final String driverTpe = "webdriver.edge.driver";
-    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
+//    private static final String driverTpe = "webdriver.edge.driver";
+//    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
     static String baseurl = "https://www.facebook.com/r.php?entry_point=login";
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty(driverTpe, driverLocation);
+//        System.setProperty(driverTpe, driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();

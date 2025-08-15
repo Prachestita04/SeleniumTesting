@@ -12,12 +12,12 @@ import java.util.Objects;
 import java.util.Set;
 
 public class HandleWindows {
-    private static final String driverType = "webdriver.edge.driver";
-    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
-    static String baseurl = "https://www.amazon.in/s?rh=n%3A1389401031%2Cp_123%3A110955&dc&qid=1747970257&rnid=91049095031&ref=sr_nr_p_123_1";
+//    private static final String driverType = "webdriver.edge.driver";
+//    private static final String driverLocation = "C:\\Users\\user\\Downloads\\msedgedriver.exe";
+    static String baseurl = "https://www.amazon.in/s?k=mobile&crid=OL4N8DQZA3K6&sprefix=mobile%2Caps%2C341&ref=nb_sb_noss_2";
 
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty(driverType,driverLocation);
+//        System.setProperty(driverType,driverLocation);
         WebDriver driver = new EdgeDriver();
 
         driver.manage().window().maximize();
@@ -30,8 +30,7 @@ public class HandleWindows {
 
 //        WebElement product = driver.findElement(By.xpath("(//a[@class='a-link-normal s-line-clamp-4 s-link-style a-text-normal'])[2]"));
 //        product.click();
-
-        List<WebElement> products = driver.findElements(By.xpath("//a[@class='a-link-normal s-line-clamp-4 s-link-style a-text-normal']"));
+        List<WebElement> products = driver.findElements(By.xpath("//h2[@class='a-size-medium a-spacing-none a-color-base a-text-normal']//parent::a"));
         int count = 0;
         for (WebElement eachProduct: products){
             if(count<3){
