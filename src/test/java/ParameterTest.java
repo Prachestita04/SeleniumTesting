@@ -19,7 +19,7 @@ public class ParameterTest {
 
 //    @BeforeSuite
     @Test
-    @Parameters({"browser"}) //@Parameters({"parameter_name within testing.xml"})
+    @Parameters({"browser"}) //@Parameters({"parameter_name within testng.xml"})
     public void setUp(String browser){
         if(browser.equalsIgnoreCase("edge")){
             driver = new EdgeDriver();
