@@ -14,6 +14,9 @@ public class DifferentXpath {
            7. (//*[contains(text(),'Dropdown Button')])[1]//following-sibling::ul[@style='']
            8. ((//*[contains(text(),'Dropdown Button')])[1]//following-sibling::ul)[1]
            9. (//*[contains(text(),'Dropdown Button')])[1]//following-sibling::ul/li/a
+
+              preceding-sibling = before main element
+              following - sibling = after main element
          */
 
 
